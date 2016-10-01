@@ -26,10 +26,6 @@ DELETE FROM functions WHERE NOT triggerid IN (SELECT triggerid FROM triggers);
 DELETE FROM graphs_items WHERE NOT graphid IN (SELECT graphid FROM graphs);
 DELETE FROM graphs_items WHERE NOT itemid IN (SELECT itemid FROM items);
 
--- Delete orphaed host_profiles 
-DELETE FROM hosts_profiles WHERE NOT hostid IN (SELECT hostid FROM hosts);
-DELETE FROM hosts_profiles_ext WHERE NOT hostid IN (SELECT hostid FROM hosts);
-
 -- Delete orphaned host macro's 
 DELETE FROM hostmacro WHERE NOT hostid IN (SELECT hostid FROM hosts);
 
@@ -61,7 +57,6 @@ DELETE FROM media WHERE NOT mediatypeid IN (SELECT mediatypeid FROM media_type);
 DELETE FROM rights WHERE NOT groupid IN (SELECT usrgrpid FROM usrgrp);
 DELETE FROM rights WHERE NOT id IN (SELECT groupid FROM groups);
 DELETE FROM sessions WHERE NOT userid IN (SELECT userid FROM users);
-DELETE FROM user_history WHERE NOT userid IN (SELECT userid FROM users);
 
 -- Screens 
 DELETE FROM screens_items WHERE screenid NOT IN (SELECT screenid FROM screens);
@@ -75,7 +70,6 @@ DELETE FROM history WHERE itemid NOT IN (SELECT itemid FROM items);
 DELETE FROM history_uint WHERE itemid NOT IN (SELECT itemid FROM items);
 DELETE FROM history_log WHERE itemid NOT IN (SELECT itemid FROM items);
 DELETE FROM history_str WHERE itemid NOT IN (SELECT itemid FROM items);
-DELETE FROM history_sync WHERE itemid NOT IN (SELECT itemid FROM items);
 DELETE FROM history_text WHERE itemid NOT IN (SELECT itemid FROM items);
 
 DELETE FROM trends WHERE itemid NOT IN (SELECT itemid FROM items);
